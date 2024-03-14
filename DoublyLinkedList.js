@@ -48,11 +48,38 @@ class DoublyLinkedList {
 
         return array;
     }
+
+    insert(index, value){
+        if(index >= this.length){
+            return this.append(value);
+        }
+
+        const newNode = new Node(value);
+        const leader = this.traverseToIndex(index - 1);
+        const holdingPointer = leader.next;
+        leader.next = newNode;
+        newNode.previous = leader.value;
+        newNode.next = holdingPointer;
+        holdingPointer.previous = value;
+        this.length++;
+    }
+
+    traverseToIndex(index){
+        let counter = 0;
+        let currentNode = this.head;
+        while (counter !== index){
+            currentNode = currentNode.next;
+            counter++;
+        }
+
+        return currentNode
+    }
 }
 
 const MyDoublyLinkedList = new DoublyLinkedList(5);
 MyDoublyLinkedList.append(10);
 MyDoublyLinkedList.append(15);
 MyDoublyLinkedList.prepend(0);
+MyDoublyLinkedList.insert(1, 50)
 console.log(MyDoublyLinkedList);
 console.log(MyDoublyLinkedList.printList());
