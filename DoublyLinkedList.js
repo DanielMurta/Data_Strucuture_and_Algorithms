@@ -24,8 +24,17 @@ class DoublyLinkedList {
         const newNode = new Node(value);
 
         this.tail.next = newNode;
-        newNode.previous = this.tail.value
+        newNode.previous = this.tail.value;
         this.tail = newNode;
+        this.length++;
+    }
+
+    prepend(value){
+        const newHead = new Node(value);
+
+        this.head.previous = value;
+        newHead.next = this.head;
+        this.head = newHead;
         this.length++;
     }
 
@@ -44,4 +53,6 @@ class DoublyLinkedList {
 const MyDoublyLinkedList = new DoublyLinkedList(5);
 MyDoublyLinkedList.append(10);
 MyDoublyLinkedList.append(15);
+MyDoublyLinkedList.prepend(0);
 console.log(MyDoublyLinkedList);
+console.log(MyDoublyLinkedList.printList());
