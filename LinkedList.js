@@ -95,15 +95,23 @@ class LinkedList {
         leader.next = unWantedNode.next;
         this.length--;
     }
-}
 
-const MylinkedList = new LinkedList(10);
-MylinkedList.append(5);
-MylinkedList.append(16);
-MylinkedList.prepend(1);
-MylinkedList.insert(2, 99)
-MylinkedList.insert(20, 8)
-console.log(MylinkedList.printList());
-MylinkedList.remove(4)
-// console.log(MylinkedList);
-// console.log(MylinkedList.printList());
+    reverse(){
+        if(!this.head.next) {
+            return this.head;
+        }
+
+        let first = this.head;
+        this.tail = this.head;
+        let second = first.next;
+        while(second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+
+        this.head.next = null;
+        this.head = first;
+    }
+}
