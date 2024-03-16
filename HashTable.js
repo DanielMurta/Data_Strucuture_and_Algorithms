@@ -47,9 +47,3 @@ class HashTable {
         }
     }
 }
-
-const myHashTable = new HashTable(2);
-myHashTable.set('grapes', 10000);
-myHashTable.set('apples', 100);
-myHashTable.set('oranges', 10);
-console.log(myHashTable.keys());
