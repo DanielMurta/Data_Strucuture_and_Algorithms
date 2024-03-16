@@ -1,7 +1,7 @@
 // Doubly linked list in JavaScript
 
 class Node {
-    constructor(value){
+    constructor(value) {
         this.value = value,
         this.previous = null,
         this.next = null
@@ -9,7 +9,7 @@ class Node {
 }
 
 class DoublyLinkedList {
-    constructor(value){
+    constructor(value) {
         this.head = {
             value: value,
             previous: null,
@@ -20,7 +20,7 @@ class DoublyLinkedList {
         this.length = 1;
     }
 
-    append(value) {
+    append(value) { //O(n)
         const newNode = new Node(value);
 
         this.tail.next = newNode;
@@ -29,7 +29,7 @@ class DoublyLinkedList {
         this.length++;
     }
 
-    prepend(value){
+    prepend(value) { //O(1)
         const newHead = new Node(value);
 
         this.head.previous = value;
@@ -49,7 +49,7 @@ class DoublyLinkedList {
         return array;
     }
 
-    insert(index, value){
+    insert(index, value) { //O(n)
         if(index >= this.length){
             return this.append(value);
         }
@@ -64,7 +64,7 @@ class DoublyLinkedList {
         this.length++;
     }
 
-    traverseToIndex(index){
+    traverseToIndex(index) {
         let counter = 0;
         let currentNode = this.head;
         while (counter !== index){
@@ -75,7 +75,7 @@ class DoublyLinkedList {
         return currentNode
     }
 
-    remove(index){
+    remove(index) { //O(n)
         const leader = this.traverseToIndex(index - 1);
         const unWantedNode = leader.next;
         unWantedNode.next.previous = leader.value;
@@ -83,13 +83,3 @@ class DoublyLinkedList {
         this.length--;
     }
 }
-
-const MyDoublyLinkedList = new DoublyLinkedList(5);
-MyDoublyLinkedList.append(10);
-MyDoublyLinkedList.append(15);
-MyDoublyLinkedList.prepend(0);
-MyDoublyLinkedList.insert(1, 50)
-// console.log(MyDoublyLinkedList);
-MyDoublyLinkedList.remove(1)
-console.log(MyDoublyLinkedList);
-console.log(MyDoublyLinkedList.printList());
