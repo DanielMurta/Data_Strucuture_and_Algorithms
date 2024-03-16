@@ -16,7 +16,7 @@
 // }
 
 class Node {
-    constructor(value){
+    constructor(value) {
         this.value = value;
         this.next = null;
     }
@@ -33,7 +33,7 @@ class LinkedList {
         this.length = 1;
     }
 
-    append(value) {
+    append(value) { //O(1)
         const newNode = new Node(value);
 
         this.tail.next = newNode;
@@ -41,7 +41,7 @@ class LinkedList {
         this.length ++;
     }
 
-    prepend(value){
+    prepend(value){ //O(1)
         const newHead = new Node(value);
 
         newHead.next = this.head;
@@ -60,7 +60,7 @@ class LinkedList {
         return array;
     }
 
-    insert(index, value){
+    insert(index, value) { //O(n)
         if (index >= this.length) {
             return this.append(value);
         }
@@ -74,7 +74,7 @@ class LinkedList {
 
     }
 
-    traverseToIndex(index){
+    traverseToIndex(index) {
         let counter = 0;
         let currentNode = this.head;
         while (counter !== index){
@@ -85,7 +85,7 @@ class LinkedList {
         return currentNode
     }
 
-    remove(index){
+    remove(index) { //O(n)
         if (index >= this.length) {
             
         }
@@ -96,7 +96,7 @@ class LinkedList {
         this.length--;
     }
 
-    reverse(){
+    reverse() {
         if(!this.head.next) {
             return this.head;
         }
