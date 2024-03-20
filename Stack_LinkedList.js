@@ -32,7 +32,18 @@ class Stack {
     }
 
     pop() { //O(1)
+        if (!this.top){
+            return null;
+        }
 
+        if (this.top === this.bottom){
+            this.bottom = null;
+        }
+
+        // const holdingPointer = this.top
+        this.top = this.top.next;
+        this.length--;
     }
 
 }
+
