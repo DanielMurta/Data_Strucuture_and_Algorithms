@@ -12,6 +12,7 @@ class Stack {
     }
 
     pop() { //O(1)
+        this.array.pop();
     }
 }
 
