@@ -8,9 +8,10 @@ class Stack {
     }
 
     push(value) { // O(1)
+        this.array.push(value);
     }
 
     pop() { //O(1)
     }
-
 }
+
