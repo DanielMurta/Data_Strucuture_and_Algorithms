@@ -5,3 +5,4 @@ Content learned in the course:
 - Data Structure: Introdution
 - Arrays
 - Hash Tables
+- Stack + Queues
