@@ -17,10 +17,28 @@ class MyArray {
     }
 
     pop() { //O(1)
+        const lastItem = this.data[this.length - 1];
+
+        delete this.data[this.length - 1];
+        this.length--;
+
+        return lastItem;
     }
 
     delete(index) { //O(n)
+        const item = this.data[index];
+
+        this.shiftItems(index);
+
+        return item;
     }
 
-    
+    shiftItems(index) { //O(n)
+        for (let i = index; i < this.length; i++) {
+            this.data[i] = this.data[i + 1];
+        }
+
+        delete this.data[this.length - 1];
+        this.length--;
+    }
 }
